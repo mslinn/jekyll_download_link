@@ -2,14 +2,23 @@
 [![Gem Version](https://badge.fury.io/rb/jekyll_download_link.svg)](https://badge.fury.io/rb/jekyll_download_link)
 ===========
 
-`jekyll_download_link` is a Jekyll filter plugin that returns item n of array, origin 1.
+`jekyll_download_link` is a Jekyll tag plugin that generates a link to the given URI, which must be a file on the server.
+The file name can be absolute or relative to the top-level directory of the web site.
+
 
 ## Usage
+```
+{% link cloud9.tar %}
+```
+
+Generates:
 
 ```
-{{ [1, 2, 3, 4, 5] | nth: 2 }}  # returns 2
+<a href="/cloud9.tar"><code>cloud9.tar</code></a> (4.5 KB)
 ```
-:warning: Important: the name of the filter must be followed by a colon (:). If you fail to do that an error will be generated and the Jekyll site building process will halt. The error message looks something like this: `Liquid Warning: Liquid syntax error (line 285): Expected end_of_string but found string in "{{ [1, 2, 3, 4, 5] | nth: '2' }}" in /some_directory/some_files.html Liquid Exception: Liquid error (line 285): wrong number of arguments (given 1, expected 2) in /some_directory/some_file.html Error: Liquid error (line 285): wrong number of arguments (given 1, expected 2)`
+
+Which renders as:<br>
+<a href="/cloud9.tar">`cloud9.tar`</a> (4.5 KB)
 
 
 ## Installation
