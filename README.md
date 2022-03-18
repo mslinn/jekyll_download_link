@@ -8,7 +8,7 @@ The file name can be absolute or relative to the top-level directory of the web 
 
 ## Usage
 ```
-{% link cloud9.tar %}
+{% download_link cloud9.tar %}
 ```
 
 Generates:
