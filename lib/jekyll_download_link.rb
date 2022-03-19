@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "jekyll"
-require_relative "jekyll_download_link/version"
 require "jekyll_plugin_logger"
+require_relative "jekyll_download_link/version"
 
 module Jekyll
   # Generates an href to a file for the user to download from the site.
@@ -39,7 +39,7 @@ module Jekyll
       "#{size > 9 || size.modulo(1) < 0.1 ? "%d" : "%.1f"} %s" % [size, unit]
     end
   end
+  info { "Loaded jekyll_download_link plugin." }
 end
 
 Liquid::Template.register_tag("download_link", Jekyll::DownloadLink)
-Jekyll.info "Loaded jekyll_download_link plugin."

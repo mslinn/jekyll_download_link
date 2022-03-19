@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     jekyll_download_link (1.0.0)
-      jekyll
+      jekyll (>= 3.5.0)
       jekyll_plugin_logger
 
 GEM
