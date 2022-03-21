@@ -4,6 +4,10 @@ require "jekyll"
 require "jekyll_plugin_logger"
 require_relative "jekyll_download_link/version"
 
+module JekyllPluginDownloadLinkName
+  PLUGIN_NAME = "download_link"
+end
+
 module Jekyll
   # Generates an href to a file for the user to download from the site.
   # Also shows the file size in a human-readable format.
@@ -39,7 +43,7 @@ module Jekyll
       "#{size > 9 || size.modulo(1) < 0.1 ? "%d" : "%.1f"} %s" % [size, unit]
     end
   end
-  info { "Loaded jekyll_download_link plugin." }
+  info { "Loaded #{JekyllPluginDownloadLinkName::PLUGIN_NAME} v#{JekyllDownloadLink::VERSION} plugin." }
 end
 
-Liquid::Template.register_tag("download_link", Jekyll::DownloadLink)
+Liquid::Template.register_tag(JekyllPluginDownloadLinkName::PLUGIN_NAME, Jekyll::DownloadLink)
