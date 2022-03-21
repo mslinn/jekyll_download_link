@@ -26,12 +26,12 @@ Gem::Specification.new do |spec|
   spec.authors = ['Mike Slinn']
   spec.bindir = 'exe'
   spec.description = <<~END_OF_DESC
-    Provides a Jekyll filter that provides case-insensitive hash key sorting.
+    Provides a Jekyll tag that generates an href to a file for the user to download, plus human-friendly filesize.
   END_OF_DESC
   spec.email = ['mslinn@mslinn.com']
   spec.executables = GemSpecHelper.spec_executables(files)
   spec.files = files
-  spec.homepage = 'https://github.com/mslinn/jekyll_download_link'
+  spec.homepage = "https://www.mslinn.com/blog/2020/10/03/jekyll-plugins.html"
   spec.license = 'MIT'
   spec.metadata = {
     "allowed_push_host" => "https://rubygems.org",
@@ -48,7 +48,7 @@ Gem::Specification.new do |spec|
   END_MESSAGE
   spec.require_paths = ['lib']
   spec.required_ruby_version = '>= 2.6.0'
-  spec.summary = 'Provides a Jekyll filter that provides case-insensitive hash key sorting.'
+  spec.summary = 'Provides a Jekyll tag that generates an href to a file for the user to download, plus human-friendly filesize.'
   spec.version = JekyllDownloadLink::VERSION
 
   spec.add_dependency "jekyll", ">= 3.5.0"
