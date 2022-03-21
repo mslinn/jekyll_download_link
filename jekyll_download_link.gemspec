@@ -25,7 +25,9 @@ Gem::Specification.new do |spec|
 
   spec.authors = ['Mike Slinn']
   spec.bindir = 'exe'
-  spec.description = 'Provides a Jekyll filter that provides case-insensitive hash key sorting.'
+  spec.description = <<~END_OF_DESC
+    Provides a Jekyll filter that provides case-insensitive hash key sorting.
+  END_OF_DESC
   spec.email = ['mslinn@mslinn.com']
   spec.executables = GemSpecHelper.spec_executables(files)
   spec.files = files
