@@ -19,6 +19,7 @@ class DownloadLink < Liquid::Tag
   # @return [void]
   def initialize(tag_name, text, tokens)
     super
+    @logger = PluginMetaLogger.instance.new_logger(self)
     @filename = text.delete('"').delete("'").strip
   end
 
