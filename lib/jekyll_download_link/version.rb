@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module JekyllDownloadLink
-  VERSION = "1.0.0"
+module JekyllDownloadLinkVersion
+  VERSION = "1.0.1"
 end

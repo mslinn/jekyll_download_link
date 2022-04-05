@@ -32,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = '>= 2.6.0'
   spec.summary = 'Provides a Jekyll tag that generates an href to a file for the user to download, plus human-friendly filesize.'
   spec.test_files = spec.files.grep(%r!^(test|spec|features)/!)
-  spec.version = JekyllDownloadLink::VERSION
+  spec.version = JekyllDownloadLinkVersion::VERSION
 
   spec.add_dependency "jekyll", ">= 3.5.0"
   spec.add_dependency "jekyll_plugin_logger"

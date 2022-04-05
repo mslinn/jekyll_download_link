@@ -19,7 +19,7 @@ class DownloadLink < Liquid::Tag
   # @return [void]
   def initialize(tag_name, text, tokens)
     super
-    @logger = PluginMetaLogger.instance.new_logger(self)
+    @logger = PluginMetaLogger.instance.new_logger(self, PluginMetaLogger.instance.config)
     @filename = text.delete('"').delete("'").strip
   end
 
@@ -44,5 +44,5 @@ class DownloadLink < Liquid::Tag
   end
 end
 
-PluginMetaLogger.instance.info { "Loaded #{JekyllPluginDownloadLinkName::PLUGIN_NAME} v#{JekyllDownloadLink::VERSION} plugin." }
+PluginMetaLogger.instance.info { "Loaded #{JekyllPluginDownloadLinkName::PLUGIN_NAME} v#{JekyllDownloadLinkVersion::VERSION} plugin." }
 Liquid::Template.register_tag(JekyllPluginDownloadLinkName::PLUGIN_NAME, DownloadLink)
