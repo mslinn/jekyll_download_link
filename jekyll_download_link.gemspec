@@ -1,10 +1,7 @@
-# frozen_string_literal: true
+require_relative 'lib/jekyll_download_link/version'
 
-require_relative "lib/jekyll_download_link/version"
-
-# rubocop:disable Metrics/BlockLength, Style/StringLiterals
-Gem::Specification.new do |spec|
-  github = "https://github.com/mslinn/jekyll_download_link"
+Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
+  github = 'https://github.com/mslinn/jekyll_download_link'
 
   spec.authors = ['Mike Slinn']
   spec.bindir = 'exe'
@@ -12,15 +9,15 @@ Gem::Specification.new do |spec|
     Provides a Jekyll tag that generates an href to a file for the user to download, plus human-friendly filesize.
   END_OF_DESC
   spec.email = ['mslinn@mslinn.com']
-  spec.files = Dir[".rubocop.yml", "LICENSE.*", "Rakefile", "{lib,spec}/**/*", "*.gemspec", "*.md"]
-  spec.homepage = "https://www.mslinn.com/blog/2020/10/03/jekyll-plugins.html#download"
+  spec.files = Dir['.rubocop.yml', 'LICENSE.*', 'Rakefile', '{lib,spec}/**/*', '*.gemspec', '*.md']
+  spec.homepage = 'https://www.mslinn.com/blog/2020/10/03/jekyll-plugins.html#download'
   spec.license = 'MIT'
   spec.metadata = {
-    "allowed_push_host" => "https://rubygems.org",
-    "bug_tracker_uri"   => "#{github}/issues",
-    "changelog_uri"     => "#{github}/CHANGELOG.md",
-    "homepage_uri"      => spec.homepage,
-    "source_code_uri"   => github,
+    'allowed_push_host' => 'https://rubygems.org',
+    'bug_tracker_uri'   => "#{github}/issues",
+    'changelog_uri'     => "#{github}/CHANGELOG.md",
+    'homepage_uri'      => spec.homepage,
+    'source_code_uri'   => github,
   }
   spec.name = 'jekyll_download_link'
   spec.post_install_message = <<~END_MESSAGE
@@ -34,13 +31,6 @@ Gem::Specification.new do |spec|
   spec.test_files = spec.files.grep(%r!^(test|spec|features)/!)
   spec.version = JekyllDownloadLinkVersion::VERSION
 
-  spec.add_dependency "jekyll", ">= 3.5.0"
-  spec.add_dependency "jekyll_plugin_logger"
-
-  # spec.add_development_dependency "debase"
-  # spec.add_development_dependency "rubocop-jekyll"
-  # spec.add_development_dependency "rubocop-rake"
-  # spec.add_development_dependency "rubocop-rspec"
-  # spec.add_development_dependency "ruby-debug-ide"
+  spec.add_dependency 'jekyll', '>= 3.5.0'
+  spec.add_dependency 'jekyll_plugin_support'
 end
-# rubocop:enable Metrics/BlockLength, Style/StringLiterals

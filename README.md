@@ -3,7 +3,7 @@
 ===========
 
 `jekyll_download_link` is a Jekyll tag plugin that generates a link to the given URI, which must be a file on the server.
-The file name can be absolute or relative to the top-level directory of the web site.
+The file name can be absolute or relative to the top-level directory of the website.
 
 
 ## Usage
@@ -33,14 +33,10 @@ And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install jekyll_download_link
-
 
 ## Additional Information
 More information is available on
-[Mike Slinn&rsquo;s website](https://www.mslinn.com/blog/2020/10/03/jekyll-plugins.html).
+[Mike Slinn&rsquo;s website](https://mslinn.com/jekyll/3000-jekyll-plugins.html#download_link).
 
 
 ## Development
@@ -51,12 +47,7 @@ You can also run `bin/console` for an interactive prompt that will allow you to 
 
 
 ### Build and Install Locally
-To build and install this gem onto your local machine, run:
-```shell
-$ rake install:local
-```
-
-The following also does the same thing:
+To build and install this gem onto your local machine, type:
 ```shell
 $ bundle exec rake install
 jekyll_download_link 1.0.0 built to pkg/jekyll_download_link-0.1.0.gem.
@@ -78,6 +69,41 @@ jekyll_download_link (1.0.0)
 
     Generates Jekyll logger with colored output.
 ```
+
+
+## Demo Website
+A test/demo website is provided in the `demo` directory.
+You can run it under a debugger, or let it run free.
+
+The `demo/_bin/debug` script can set various parameters for the demo.
+View the help information with the `-h` option:
+```shell
+$ demo/_bin/debug -h
+
+debug - Run the demo Jekyll website.
+
+By default the demo Jekyll website runs without restriction under ruby-debug-ide and debase.
+View it at http://localhost:4444
+
+Options:
+  -h  Show this error message
+
+  -r  Run freely, without a debugger
+```
+
+
+### Debugging the Demo
+To run under a debugger, for example Visual Studio Code:
+ 1. Set breakpoints.
+
+ 2. Initiate a debug session from the command line:
+    ```shell
+    $ demo/bin/debug
+    ```
+
+  3. Once the `Fast Debugger` signon appears, launch the Visual Studio Code launch configuration called `Attach rdebug-ide`.
+
+  4. View the generated website at [`http://localhost:4444`](http://localhost:4444).
 
 
 ### Build and Push to RubyGems

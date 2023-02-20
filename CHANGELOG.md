@@ -1,3 +1,8 @@
+## 1.0.2 / 2023-02-20
+  * Now depends on `jekyll_plugin_support`
+  * Demo website added
+  * Better Rubocop support
+
 ## 1.0.1 / 2022-04-05
   * Updated to `jekyll_plugin_logger` v2.1.0
 

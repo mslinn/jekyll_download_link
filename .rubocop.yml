@@ -1,17 +1,67 @@
-require: rubocop-jekyll
-inherit_gem:
- rubocop-jekyll: .rubocop.yml
+require:
+  # - rubocop-jekyll
+  - rubocop-md
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rspec
+
+# inherit_gem:
+#  rubocop-jekyll: .rubocop.yml
 
 AllCops:
   Exclude:
-      - vendor/**/*
-      - Gemfile*
-      - '*.gemspec' # This does nothing. Why?
+    - exe/**/*
+    - vendor/**/*
+    - Gemfile*
+    - jekyll_download_link.gemspec
   NewCops: enable
   TargetRubyVersion: 2.6
+
+Gemspec/DeprecatedAttributeAssignment:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
+
+Layout/InitialIndentation:
+  Exclude:
+    - README.md
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  Exclude:
+    - jekyll_download_link.gemspec
 
 Layout/LineLength:
   Max: 150
 
-# Gemspec/RequireMFA:
-#   enable: false
+Lint/RedundantCopDisableDirective:
+  Exclude:
+    - jekyll_download_link.gemspec
+
+Lint/SymbolConversion:
+  Exclude:
+    - jekyll_download_link.gemspec
+
+Metrics/BlockLength:
+  Exclude:
+    - jekyll_download_link.gemspec
+    - spec/**/*
+  Max: 35
+
+Metrics/ClassLength:
+  Exclude:
+    - spec/**/*
+
+Naming/FileName:
+  Exclude:
+    - Rakefile
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma
