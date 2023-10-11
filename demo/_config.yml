@@ -31,6 +31,7 @@ plugin_loggers:
   PluginMetaLogger: info
 permalink: "/blog/:year/:month/:day/:title:output_ext"
 plugins: # Use file name of the plugin entry point, not the gem name
+  # - jekyll_download_link
   - jekyll
   - html-proofer
 sass:
