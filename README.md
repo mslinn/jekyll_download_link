@@ -1,6 +1,7 @@
 # `jekyll_download_link` [![Gem Version](https://badge.fury.io/rb/jekyll_download_link.svg)](https://badge.fury.io/rb/jekyll_download_link)
 
-`jekyll_download_link` is a Jekyll tag plugin that generates a link to the given URI, which must be a file on the server.
+`jekyll_download_link` is a Jekyll tag plugin that generates a link to the given URI,
+which must be a file on the server.
 The file name can be absolute or relative to the top-level directory of the website.
 
 

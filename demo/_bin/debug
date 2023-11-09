@@ -1,33 +1,18 @@
 #!/bin/bash
 
-# shellcheck disable=SC2086,SC2155,SC2059
-
-export FI_PATHS="$(pwd)/.*:/dev/.*:/proc/.*:/run/.*"
-
-function show_paths {
-  IFS=':' read -r -a ARRAY <<< "$FI_PATHS"
-  for X in "${ARRAY[@]}"; do
-    printf "        $X\n"
-  done
-}
-
 function help {
   echo "
 $(basename $0) - Run the demo Jekyll website.
-
-By default the demo Jekyll website runs without restriction under ruby-debug-ide and debase,
-and listens on 0.0.0.0:1234.
-
+By default the demo Jekyll website runs without restriction under debug,
+and listens on 0.0.0.0.
 Options:
   -h  Show this error message
-
   -r  Run freely, without a debugger
 "
   exit 1
 }
 
 
-unset FLEXIBLE_INCLUDE_PATHS
 unset RUN_FREE
 while getopts "hr" OPT; do
   case "$OPT" in
@@ -43,10 +28,18 @@ done
 shift $((OPTIND-1))
 
 
-# dispatcher-port and dispatcher-port are arbitrarily chosen to prevent conflicts with other instances.
+# Change to parent directory of this script
+SOURCE=${BASH_SOURCE[0]}
+while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+  SOURCE=$(readlink "$SOURCE")
+  [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+cd "$DIR/.." || exit
 
 run="serve \
-    --livereload_port 25721 \
+    --livereload-port 25721 \
     --force_polling \
     --host 0.0.0.0 \
     --port 4444 \
@@ -56,20 +49,14 @@ run="serve \
     --drafts \
     --unpublished"
 
-GIT_ROOT="$( git rev-parse --show-toplevel )"
-cd "${GIT_ROOT}/demo" || exit
-
-bundle install
-bundle update
-
+export BUNDLE_WITH=development
+rm -f Gemfile.lock
+bundle
 bundle exec jekyll clean # Ensure all hooks get called
 
 if [ "$RUN_FREE" ]; then
-  bundle exec ../exe/jekyll $run
+  bundle exec jekyll $run
 else
-  bundle exec rdebug-ide \
-    --host 0.0.0.0 \
-    --port 1234 \
-    --dispatcher-port 26162 \
-    -- ../exe/jekyll $run
+  bundle exec rdbg -O --port=0 -- \
+    ../binstub/jekyll $run
 fi
