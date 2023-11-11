@@ -12,7 +12,6 @@ Options:
   exit 1
 }
 
-
 unset RUN_FREE
 while getopts "hr" OPT; do
   case "$OPT" in
@@ -27,7 +26,6 @@ while getopts "hr" OPT; do
 done
 shift $((OPTIND-1))
 
-
 # Change to parent directory of this script
 SOURCE=${BASH_SOURCE[0]}
 while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
@@ -39,7 +37,7 @@ DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
 cd "$DIR/.." || exit
 
 run="serve \
-    --livereload-port 25721 \
+    --livereload_port 25721 \
     --force_polling \
     --host 0.0.0.0 \
     --port 4444 \
@@ -49,6 +47,9 @@ run="serve \
     --drafts \
     --unpublished"
 
+GIT_ROOT="$( git rev-parse --show-toplevel )"
+cd "${GIT_ROOT}/demo" || exit
+
 export BUNDLE_WITH=development
 rm -f Gemfile.lock
 bundle
@@ -57,6 +58,5 @@ bundle exec jekyll clean # Ensure all hooks get called
 if [ "$RUN_FREE" ]; then
   bundle exec jekyll $run
 else
-  bundle exec rdbg -O --port=0 -- \
-    ../binstub/jekyll $run
+  bundle exec rdbg -O --port=0 -- ../binstub/jekyll $run
 fi
