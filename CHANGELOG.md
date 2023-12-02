@@ -1,10 +1,11 @@
 # Change Log
 
-## 1.0.2 / 2023-02-20
+## 1.0.2 / 2023-12-02
 
 * Now depends on `jekyll_plugin_support`
 * Demo website added
 * Better Rubocop support
+* Pinned to `json` gem v3.6.2 because Jekyll 4.3.2 requires it
 
 
 ## 1.0.1 / 2022-04-05
