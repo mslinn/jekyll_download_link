@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gemspec
 
 # Temporary fix while we wait for an update to Jekyll 4.3.2
-gem 'json', '= 2.6.3'
+# gem 'json', '= 2.6.3'
 
 group :test, :development do
   gem 'debug', '>= 1.0.0', require: false

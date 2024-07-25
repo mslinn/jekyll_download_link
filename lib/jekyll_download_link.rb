@@ -32,5 +32,5 @@ class DownloadLink < JekyllSupport::JekyllTagNoArgParsing
     "<a href='/#{@filename}'><code>#{@filename}</code></a> (#{size_str})"
   end
 
-  JekyllPluginHelper.register(self, JekyllPluginDownloadLinkName::PLUGIN_NAME)
+  JekyllSupport::JekyllPluginHelper.register(self, JekyllPluginDownloadLinkName::PLUGIN_NAME)
 end

@@ -1,6 +1,6 @@
 require_relative 'lib/jekyll_download_link/version'
 
-spec = Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
+Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   github = 'https://github.com/mslinn/jekyll_download_link'
 
   spec.authors = ['Mike Slinn']
@@ -31,6 +31,6 @@ spec = Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.test_files = spec.files.grep(%r!^(test|spec|features)/!)
   spec.version = JekyllDownloadLinkVersion::VERSION
 
-  spec.add_dependency 'jekyll', '>= 3.5.0', '<=4.3.2'
+  spec.add_dependency 'jekyll', '>= 4.3.3'
   spec.add_dependency 'jekyll_plugin_support'
 end
