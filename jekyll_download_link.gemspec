@@ -32,5 +32,5 @@ Gem::Specification.new do |spec| # rubocop:disable Metrics/BlockLength
   spec.version = JekyllDownloadLinkVersion::VERSION
 
   spec.add_dependency 'jekyll', '>= 4.3.3'
-  spec.add_dependency 'jekyll_plugin_support'
+  spec.add_dependency 'jekyll_plugin_support', '>= 1.0.0'
 end
